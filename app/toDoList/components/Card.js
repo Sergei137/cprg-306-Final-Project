@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faTrashAlt, faEye } from '@fortawesome/free-solid-svg-icons';
-import EditTask from '../models/EditTask';
-import ViewTask from '../models/View';
+import EditTask from '../modals/EditTask';
+import ViewTask from '../modals/View';
 
 
 const Card = ({taskObj, index, deleteTask, updateListArray}) => {
