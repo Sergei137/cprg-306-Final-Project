@@ -1,3 +1,4 @@
+import NavBar from '@/components/NavBar';
 import Link from 'next/link';
 // import Image from 'next/image';
 // import ToDoList from './components/ToDoList';
@@ -6,12 +7,9 @@ import Link from 'next/link';
 export default function Home(){
   return(
     <div>
+      <NavBar/>
       <p>home page, login, registration</p>
-      <p>-</p>
-      <p><Link href="/dashboard">Dashboard Page</Link></p>
-      <p><Link href="/projectDetails">Project Details Page</Link></p>
-      <p><Link href="/toDoList">To Do List Page</Link></p>
-      <p><Link href="/visualization">Visualization Page</Link></p>
+      <p>"Welcome to our ProPlan"<br /> "Collaborative Project Management"</p>
     </div>
   )
 }
