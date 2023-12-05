@@ -1,13 +1,17 @@
-import Image from 'next/image'
+import Link from 'next/link';
+// import Image from 'next/image';
+// import ToDoList from './components/ToDoList';
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        <h1 className="text-4xl font-bold text-center">
-          Web Dev Final Group Project
-        </h1>
-      </div>
-    </main>
+export default function Home(){
+  return(
+    <div>
+      <p>home page, login, registration</p>
+      <p>-</p>
+      <p><Link href="/dashboard">Dashboard Page</Link></p>
+      <p><Link href="/projectDetails">Project Details Page</Link></p>
+      <p><Link href="/toDoList">To Do List Page</Link></p>
+      <p><Link href="/visualization">Visualization Page</Link></p>
+    </div>
   )
 }

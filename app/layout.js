@@ -4,8 +4,9 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Task Manager',
-  description: 'CPRG-306 Final Group Project',
+  title: 'Task Manager App',
+  description: 'CPRG-306 Final group project',
+
 }
 
 export default function RootLayout({ children }) {
