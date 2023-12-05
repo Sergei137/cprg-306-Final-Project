@@ -3,8 +3,6 @@ import Link from 'next/link';
 // import ToDoList from './components/ToDoList';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
-
-
 export default function Home(){
   return(
     <div>

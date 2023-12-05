@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function visulaization() {
+export default function visualizationPage() {
   return (
     <main>
       <div>
