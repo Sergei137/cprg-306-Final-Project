@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function ProjectDetails() {
+export default function ProjectDetailsPage() {
   return (
     <main>
       <div>

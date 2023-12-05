@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from "react";
 import CreateTask from "../modals/createTask";
 import Card from "./Card";
+
 const ToDoList = () => {
   const [modal, setModal] = useState(false);
-    
   const [taskList, setTaskList] = useState([]);
 
   //To fetch the created task from the local storage and keep it saved on the page

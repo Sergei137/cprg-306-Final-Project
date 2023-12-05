@@ -1,6 +1,5 @@
-
-//import { useAmp } from "next/amp";
 import React, { useState } from "react";
+//import { useAmp } from "next/amp";
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
