@@ -13,6 +13,8 @@ const SignIn = () => {
 
     e.preventDefault();
 
+    setErrorMessage(''); // clear error message on new sign in
+
     signInWithEmailAndPassword(auth, email, password)
 
     .then((userCredential) => {
