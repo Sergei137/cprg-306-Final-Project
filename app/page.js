@@ -16,16 +16,14 @@ export default function Home(){
 
   return(
     <div>
+      <NavBar/>
+      <p>home page, login, registration</p>
+      <p>"Welcome to our ProPlan"<br /> "Collaborative Project Management"</p>
 
       <p>LOGIN PAGE</p>
       <p>-</p>
       <SignIn />
       <AuthDetails />
-
-      <NavBar/>
-      <p>home page, login, registration</p>
-      <p>"Welcome to our ProPlan"<br /> "Collaborative Project Management"</p>
-
     </div>
   )
 }
