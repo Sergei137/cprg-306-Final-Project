@@ -1,17 +1,22 @@
-import Link from 'next/link';
+//import Link from 'next/link';
 // import Image from 'next/image';
 // import ToDoList from './components/ToDoList';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
+import SignIn from './_utils/SignIn';
+//import SignUp from './_utils/SignUp';
+import AuthDetails from './_utils/AuthDetails';
+
 export default function Home(){
+
+
+
   return(
     <div>
-      <p>home page, login, registration</p>
+      <p>LOGIN PAGE</p>
       <p>-</p>
-      <p><Link href="/dashboard">Dashboard Page</Link></p>
-      <p><Link href="/projectDetails">Project Details Page</Link></p>
-      <p><Link href="/toDoList">To Do List Page</Link></p>
-      <p><Link href="/visualization">Visualization Page</Link></p>
+      <SignIn />
+      <AuthDetails />
     </div>
   )
 }
