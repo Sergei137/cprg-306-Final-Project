@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faTrashAlt, faEye } from '@fortawesome/free-solid-svg-icons';
 import EditTask from '../modals/EditTask';
 import ViewTask from '../modals/View';
+import '../css/toDoList.css';
 
 const Card = ({taskObj, index, deleteTask, updateListArray}) => {
   const [modal, setModal] = useState(false)
@@ -44,7 +45,7 @@ const Card = ({taskObj, index, deleteTask, updateListArray}) => {
   }
 
   return (
-    <div class = "card-wrapper mr-5" className=" relative w-72 h-52 mt-10 mr-5 shadow-lg flex flex-col p-10 bg-slate-50">
+    <div class = "card-wrapper mr-5" className=" relative w-72 h-52 mt-10 mr-5 shadow-lg flex flex-col p-10 bg-slate-50 bg-opacity-80">
       <div class = "card-top" style={{"background-color": colors[index%5].primaryColor}}></div>
       <div class = "task-holder">
         <span className="mt-5" class = "card-header" style={{"background-color":colors[index%5].secondaryColor, "border-radius": "10px"}}>{taskObj.Name}</span>

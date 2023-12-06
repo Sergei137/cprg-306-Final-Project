@@ -6,16 +6,16 @@ const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-800 text-white">
+    <nav className="bg-white bg-opacity-50 text-black">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           {/* ... Mobile menu button and other UI elements ... */}
-          <div className="hidden sm:block sm:ml-6">
+          <div className="hidden sm:block sm:ml-6 ">
             <div className="flex space-x-4">
               {/* Navigation Links */}
               {navLinks.map((link) => (
                 <Link href={link.href} key={link.name}>
-                  <span className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer">
+                  <span className="text-gray-700 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer">
                     {link.name}
                   </span>
                 </Link>

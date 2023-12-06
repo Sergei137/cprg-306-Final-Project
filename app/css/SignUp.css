@@ -1,0 +1,52 @@
+/* SignUp.css */
+
+.sign-up-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .sign-up-button {
+    padding: 10px;
+    background-color:rgba(255, 255, 255, 0.7); /* Green color for success */
+    /* Green color for success */
+    color: #556581;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: blue ;/* Darker green on hover */
+    color:aliceblue;
+  }
+  
+  p {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .success-message {
+    color: #28a745;
+    margin-top: 10px;
+  }
+  

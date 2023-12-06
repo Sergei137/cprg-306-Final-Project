@@ -37,15 +37,15 @@ const AuthDetails = () => {
     <div className='auth-details-container'>
       <div>
         { authUser ? (
-          <>
-            <p>Signed in as {authUser.email}</p>
-            <p><Link href="/dashboard">Go to Dashboard Page (Link)</Link></p>
-            <button onClick={userSignOut}>Sign Out (Button)</button>
-          </>
+          <div className='flex flex-col justify-center'>
+            <p className='text-center mt-3'>Signed in as {authUser.email}</p>
+            <p className="text-blue-500 underline text-center mt-3 mb-3"><Link href="/dashboard">Go to Dashboard Page</Link></p>
+            <button  onClick={userSignOut} className=' sign-out-button m-auto w-28  hover:bg-blue-700 text-gray-700 hover:text-white'>Sign Out</button>
+          </div>
         ) : (
           <>
-            <p><Link href="/signUp">Go to Sign Up Page (Link)</Link></p>
-            <p>Signed out</p>
+            <p className="text-blue-500 underline text-center"><Link href="/signUp">Go to Sign Up Page </Link></p>
+            <p className="text-red-600 text-center">Signed out</p>
           </>
         )}
       </div>

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
+import NavBar from '@/components/NavBar';
 
 const VisualizationPage = () => {
   const initialData = {
@@ -62,10 +63,13 @@ const VisualizationPage = () => {
   };
 
   return (
-    <div className="visualization-container">
-      <h2>Project Visualization</h2>
+    <main>
+      <NavBar/>
+    <div className="visualization-container  ">
+      
+      <h2 className='mt-10'>Project Visualization</h2>
 
-      <div className="chart-container">
+      <div className="chart-container mt-10">
         <h3>Bar Chart</h3>
         <Bar data={chartData} options={{ responsive: true }} />
       </div>
@@ -90,12 +94,13 @@ const VisualizationPage = () => {
               value={chartData.datasets[0].data[index]}
               onChange={(e) => handleDataChange(e.target.value, index)}
             />
-            <button onClick={() => deleteItem(index)}>Delete</button>
+            <button onClick={() => deleteItem(index)} className='sign-out-button'>Delete</button>
           </div>
         ))}
-        <button onClick={addItem}>Add New Item</button>
+        <button onClick={addItem} className='sign-out-button'>Add New Item</button>
       </div>
     </div>
+    </main>
   );
 };
 

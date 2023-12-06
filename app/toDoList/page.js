@@ -2,13 +2,15 @@ import Link from 'next/link';
 //import Image from 'next/image';
 import ToDoList from './components/ToDoList';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import NavBar from '@/components/NavBar';
 
 export default function ToDoListPage(){
   return(
-    <main>  
-      <div>
+    <main>
+      <NavBar/>  
+      <div className="flex flex-col items-center" >
         <ToDoList/>
-        <Link href="/">Home Page</Link>
+        <Link href="/" className="text-white mt-4">Home Page</Link>
       </div>
     </main>
   )

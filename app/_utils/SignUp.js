@@ -3,6 +3,7 @@ import React, { useState } from 'react';
  
 import { auth } from './firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import '../css/SignUp.css'
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -65,7 +66,7 @@ const SignUp = () => {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <button type='submit'>Sign Up (Button)</button>
+        <button class ="sign-up-button" type='submit'>Sign Up</button>
       </form>
     </div>
   );

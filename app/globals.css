@@ -4,7 +4,26 @@
 
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-.card-container {
+
+
+body {
+  color: antiquewhite;
+  margin: 0;
+  
+  background: url('background.jpg') repeat;
+  animation: moveBackground 20s linear infinite;
+}
+
+@keyframes moveBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+/* .card-container {
   height: 300px;
   width: 300px;
   box-shadow: 0px 3px 50px #A5A5A5;
@@ -22,16 +41,19 @@
   display: flex;
   flex-direction: column;
   position: relative;
-}
+} */
 
 /* Visualization page's css */
 .visualization-container {
   max-width: 800px;
   /* Adjust the width as per your layout */
-  margin: auto;
+
+  margin: 10px 350px;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+  background-color: rgba(255, 255, 255, 0.8);
+
+  color: black;
 }
 
 .chart-container {
@@ -45,6 +67,17 @@
 .edit-item {
   margin-bottom: 10px;
 }
+.sign-out-button{
+  padding: 10px;
+  background-color:rgba(255, 255, 255, 0.7); /* Green color for success */
+  /* Green color for success */
+  color: #556581;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
 
 /* Uncomment and update the below styles if needed
 .card-wrapper {

@@ -1,13 +1,18 @@
 'use client';
 import React, { useState } from 'react';
 
+
+
 import { auth } from './firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import '../css/SignIn.css'
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  
+  
   
   const signIn = (e) => {
 
@@ -20,6 +25,7 @@ const SignIn = () => {
     .then((userCredential) => {
       setErrorMessage(''); // clear error message on successful sign in
       console.log(userCredential);
+
     }) 
     .catch((error) => {
       setErrorMessage('Failed to login. Incorrect email or password.'); // set error message on failed sign in
@@ -28,9 +34,9 @@ const SignIn = () => {
   };
 
   return (
-    <div className='sign-in-container'>
+    <div className='sign-in-container shadow-lg'>
       <form onSubmit={signIn}>
-        <h1>Log In Form</h1>
+        <h1>Log In</h1>
         {errorMessage && <p>{errorMessage}</p>}
         <input 
           type='email' 
@@ -44,7 +50,7 @@ const SignIn = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type='submit'>Log In (Button)</button>
+        <button class ="sign-in-button" type='submit' className='bg-white bg-opacity-70 text-gray-700   hover:text-blue-700'>Log In</button>
       </form>
     </div>
   );
