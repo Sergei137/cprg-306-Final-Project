@@ -23,19 +23,19 @@ const VisualizationPage = () => {
   useEffect(() => {
     // Load projects from local storage
     const savedProjects = JSON.parse(localStorage.getItem('projects')) || [];
-
+  
     // Extract labels and data
     const labels = savedProjects.map(p => p.Name);
     const data = savedProjects.map(p => p.Progress);
     const backgroundColors = data.map(() => `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.2)`);
     const borderColors = data.map(() => `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 1)`);
-
-    setChartData({
+  
+    setChartData(prevChartData => ({
       labels: labels,
       datasets: [
-        { ...chartData.datasets[0], data: data, backgroundColor: backgroundColors, borderColor: borderColors },
+        { ...prevChartData.datasets[0], data: data, backgroundColor: backgroundColors, borderColor: borderColors },
       ],
-    });
+    }));
   }, []);
 
   return (
