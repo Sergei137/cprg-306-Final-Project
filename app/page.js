@@ -7,9 +7,9 @@ import Link from 'next/link';
 // import ToDoList from './components/ToDoList';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
-import SignIn from './_utils/SignIn';
+//import SignIn from './_utils/SignIn';
 //import SignUp from './_utils/SignUp';
-import AuthDetails from './_utils/AuthDetails';
+//import AuthDetails from './_utils/AuthDetails';
 
 export default function Home(){
   
@@ -26,13 +26,15 @@ export default function Home(){
     //   <SignIn />
     //   <AuthDetails />
     // </div>
+    <div>
+      <NavBar />
     <div className="container mx-auto mt-8 p-4 flex flex-col justify-center">
+    </div>
     <p className="text-2xl font-bold mb-4 text-center">Welcome to our ProPlan</p>
     <p className="text-lg text-center">Collaborative Project Management</p>
 
     <div className="mt-8 flex flex-col justify-center">      
-      <SignIn/>
-      <AuthDetails />
+      
     </div>
   </div>
   )
