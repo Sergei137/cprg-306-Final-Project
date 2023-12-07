@@ -63,11 +63,11 @@ export default function Dashboard() {
           <div className='proj-info-container'>
           {projects.map((project, index) => (
             <div key={index} className='proj-container'>
-              <h2 style={{"background-color": colors[index%5].primaryColor}}>{project.Name}</h2>
-              <p style={{"background-color": colors[index%5].secondaryColor}}>{project.Description}</p>
-              <p className='font-medium'>Due date:</p><p> {project.Duedate}</p>
-              <p className='font-medium'>Team members: </p><p>{project.Teammember.join(', ')}</p>
-              <p className='font-medium'>Progress:</p><p> {project.Progress}%</p>
+              <h2 className='font-bold' style={{"background-color": colors[index%5].primaryColor}}>{project.Name}</h2>
+              <p className='font-semibold' style={{"background-color": colors[index%5].secondaryColor}}>{project.Description}</p>
+              <p className='font-medium' style={{"background-color": colors[index%5].secondaryColor}}>Due date:</p><p> {project.Duedate}</p>
+              <p className='font-medium' style={{"background-color": colors[index%5].secondaryColor}}>Team members: </p><p>{project.Teammember.join(', ')}</p>
+              <p className='font-medium' style={{"background-color": colors[index%5].secondaryColor}}>Progress:</p><p> {project.Progress}%</p>
             </div>
           ))}
         </div>

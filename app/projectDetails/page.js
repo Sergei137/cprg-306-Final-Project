@@ -4,6 +4,7 @@ import Link from 'next/link';
 import NavBar from '@/components/NavBar';
 import CreateProject from './components/CreateProject';
 import EditProjectModal from './components/EditProject.js'; 
+import './projectDetails.css'
 
 const ProjectDetailsPage = () => {
   const [projects, setProjects] = useState([]);
@@ -71,30 +72,36 @@ const ProjectDetailsPage = () => {
   return (
     <main>
       <NavBar />
-      <div className='content-container'>
-        <h2>Project Details</h2>
+      <div className='page-name'>
+        <h2 className='mt-10 mb-5'>Project Details</h2>
         <CreateProject save={handleSaveProject} />
+      </div>
+      <div className='create-proj-content-container'>
         {projects.map((project, index) => {
           const { truncated, isTruncated } = truncateText(project.Description, 100);
            // Truncate after 100 characters}
           return (
-          <div key={index}>
-            <p><strong>Project Name:</strong> {project.Name}</p>
-            <p className="project-description">
-                <strong>Description:</strong> {truncated}
-                {isTruncated && <button onClick={() => alert(project.Description)}>Read more</button>}
-              </p>
-            <p><strong>Due Date:</strong> {project.Duedate}</p>
-            <p><strong>Team Member:</strong> {formatTeamMembers(project.Teammember)}</p>
-            <p><strong>Progress:</strong> {project.Progress}%</p>
-            <progress value={project.Progress} max="100"></progress>
-            <button onClick={() => handleEditProject(project)}>Edit</button>
-            <button onClick={() => handleDeleteProject(project.id)}>Delete</button>
+          <div className='new-proj-contents-container mt-5'>
+            <div key={index} className='new-proj-contents'>
+              <p><strong>Project Name:</strong> </p><p>{project.Name}</p>
+              <p className="project-description">
+                  <strong>Description:</strong></p><p> {truncated}
+                  {isTruncated && <button onClick={() => alert(project.Description)}>Read more</button>}
+                </p>
+              <p><strong>Due Date:</strong></p><p> {project.Duedate}</p>
+              <p><strong>Team Member:</strong></p><p> {formatTeamMembers(project.Teammember)}</p>
+              <p><strong>Progress:</strong> </p><p>{project.Progress}%</p>
+              <progress value={project.Progress} max="100"></progress>
+              <div className='buttons'>
+                <button onClick={() => handleEditProject(project)}>Edit</button>
+                <button onClick={() => handleDeleteProject(project.id)}>Delete</button>
+              </div>
+            </div>
           </div>
-);
-})}
-<Link href="/">Home Page</Link>
-</div>
+            );
+            })}
+            <Link href="/">Home Page</Link>
+        </div>
 {editingProject && <EditProjectModal project={editingProject} save={handleSaveProject} />}
 </main>
 );
