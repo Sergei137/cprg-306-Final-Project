@@ -1,6 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import NavBar from '@/components/NavBar';
+import ProjectDetails from '../projectDetails/page';
+
+import { useAuth } from '../_utils/AuthDetails';
 
 export default function Dashboard() {
   const projects = [
@@ -11,7 +14,13 @@ export default function Dashboard() {
       teamMembers: ['Alice', 'Bob'],
       progress: 50,
     },
-    // other projects...
+    {
+      name: 'Project 2',
+      description: 'This is project 2',
+      dueDate: '2023-11-23',
+      teamMembers: ['Alice', 'Rick', 'Bob'],
+      progress: 75,
+    },
   ];
 
   return (
@@ -21,7 +30,8 @@ export default function Dashboard() {
         <p>Dashboard</p>
         <p>-</p>
         <Link href="/">Home/Log in page</Link>
-
+      </div>
+      <div>
         {projects.map((project, index) => (
           <div key={index}>
             <h2>{project.name}</h2>
