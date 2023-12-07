@@ -5,11 +5,17 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 const EditProject = ({ project, onSave, onCancel }) => {
   const [projectName, setProjectName] = useState('');
   const [projectDescription, setProjectDescription] = useState('');
+  const [dueDate, setDueDate] = useState('');
+  const [teamMembers, setTeamMembers] = useState('');
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     if (project) {
       setProjectName(project.Name);
       setProjectDescription(project.Description);
+      setDueDate(project.Duedate || '');
+      setTeamMembers(project.Teammember ? project.Teammember.join(', ') : '');
+      setProgress(project.Progress || 0);
     }
   }, [project]);
 
@@ -17,7 +23,10 @@ const EditProject = ({ project, onSave, onCancel }) => {
     onSave({
       ...project,
       Name: projectName,
-      Description: projectDescription
+      Description: projectDescription,
+      Duedate: dueDate,
+      Teammember: teamMembers.split(',').map(member => member.trim()), // Assuming team members are comma-separated
+      Progress: parseInt(progress, 10)
     });
   };
 
@@ -46,7 +55,43 @@ const EditProject = ({ project, onSave, onCancel }) => {
               name="projectDescription" 
             />
           </div>
-        </form>            
+        {/* New field for due date */}
+        <div className="form-group">
+            <label>Due Date</label>
+            <input 
+              type="date" 
+              className="form-control" 
+              value={dueDate} 
+              onChange={e => setDueDate(e.target.value)} 
+              name="dueDate" 
+            />
+          </div>
+          {/* New field for team members */}
+          <div className="form-group">
+            <label>Team Members</label>
+            <input 
+              type="text" 
+              className="form-control" 
+              value={teamMembers} 
+              onChange={e => setTeamMembers(e.target.value)} 
+              name="teamMembers" 
+              placeholder="Enter names separated by commas"
+            />
+          </div>
+          
+          <div className="form-group">
+            <label>Progress (%)</label>
+            <input 
+              type="number" 
+              className="form-control" 
+              value={progress} 
+              onChange={e => setProgress(e.target.value)} 
+              name="progress" 
+              min="0" 
+              max="100"
+            />
+          </div>
+        </form>
       </ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={handleSave}>Save Changes</Button>
