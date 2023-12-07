@@ -10,6 +10,7 @@ const CreateProject = ({ save }) => {
   const [teamMembers, setTeamMembers] = useState('');
   const [progress, setProgress] = useState(0);
 
+
   const toggle = () => {
     setModal(!modal);
   };
@@ -34,6 +35,7 @@ const CreateProject = ({ save }) => {
         break;
       default:
         break;
+
     }
   };
 
@@ -44,6 +46,7 @@ const CreateProject = ({ save }) => {
       Duedate: dueDate,
       Teammember: teamMembers.split(',').map(member => member.trim()), // Assuming team members are comma-separated
       Progress: parseInt(progress, 10)
+
     };
     save(projectObj);
     setProjectName('');
@@ -51,6 +54,7 @@ const CreateProject = ({ save }) => {
     setDueDate('');
     setTeamMembers('');
     setProgress(0);
+
     toggle();
   };
 
@@ -81,6 +85,7 @@ const CreateProject = ({ save }) => {
                 name="projectDescription" 
               />
             </div>
+
           {/* Existing fields for name and description */}
             {/* New field for due date */}
             <div className="form-group">
@@ -118,6 +123,7 @@ const CreateProject = ({ save }) => {
                 max="100"
               />
             </div>
+
           </form>            
         </ModalBody>
         <ModalFooter>
@@ -129,4 +135,6 @@ const CreateProject = ({ save }) => {
   );
 };
 
+
 export default CreateProject;
+

@@ -11,6 +11,7 @@ const ProjectDetailsPage = () => {
 
   useEffect(() => {
     // Load projects from local storage
+
     const savedProjects = JSON.parse(localStorage.getItem('projects')) || [];
     setProjects(savedProjects);
   }, []);
@@ -66,6 +67,7 @@ const ProjectDetailsPage = () => {
     }
   };
 
+
   return (
     <main>
       <NavBar />
@@ -99,3 +101,4 @@ const ProjectDetailsPage = () => {
 };
 
 export default ProjectDetailsPage;
+

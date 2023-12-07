@@ -9,6 +9,7 @@ const EditProject = ({ project, onSave, onCancel }) => {
   const [teamMembers, setTeamMembers] = useState('');
   const [progress, setProgress] = useState(0);
 
+
   useEffect(() => {
     if (project) {
       setProjectName(project.Name);
@@ -16,6 +17,7 @@ const EditProject = ({ project, onSave, onCancel }) => {
       setDueDate(project.Duedate || '');
       setTeamMembers(project.Teammember ? project.Teammember.join(', ') : '');
       setProgress(project.Progress || 0);
+
     }
   }, [project]);
 
@@ -27,6 +29,7 @@ const EditProject = ({ project, onSave, onCancel }) => {
       Duedate: dueDate,
       Teammember: teamMembers.split(',').map(member => member.trim()), // Assuming team members are comma-separated
       Progress: parseInt(progress, 10)
+
     });
   };
 
@@ -102,3 +105,4 @@ const EditProject = ({ project, onSave, onCancel }) => {
 };
 
 export default EditProject;
+

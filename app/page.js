@@ -1,19 +1,13 @@
+'use client';
 
-import NavBar from '@/components/NavBar';
-import Link from 'next/link';
+import React, { useState } from 'react';
 
 
-// import Image from 'next/image';
-// import ToDoList from './components/ToDoList';
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import SignIn from './_utils/SignIn';
+import AuthDetails from './_utils/AuthDetails';
 
-//import SignIn from './_utils/SignIn';
-//import SignUp from './_utils/SignUp';
-//import AuthDetails from './_utils/AuthDetails';
 
 export default function Home(){
-  
-
 
   return(
     // <div>
@@ -28,6 +22,7 @@ export default function Home(){
     // </div>
     <div>
       <NavBar />
+
     <div className="container mx-auto mt-8 p-4 flex flex-col justify-center">
     </div>
     <p className="text-2xl font-bold mb-4 text-center">Welcome to our ProPlan</p>
