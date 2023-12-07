@@ -1,13 +1,12 @@
 "use client";
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import NavBar from '@/components/NavBar';
 
 const VisualizationPage = () => {
   const initialData = {
-    labels: ['Item 1', 'Item 2', 'Item 3'],
+    labels: ['Project 1', 'Project 2', 'Project 3'],
     datasets: [
       {
         label: 'Data Set',
@@ -27,6 +26,8 @@ const VisualizationPage = () => {
     ],
   };
 
+
+
   const [chartData, setChartData] = useState(initialData);
 
   const handleDataChange = (value, index) => {
@@ -38,29 +39,58 @@ const VisualizationPage = () => {
     });
   };
 
+  const getRandomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
+
   const addItem = () => {
-    const newItemLabel = `Item ${chartData.labels.length + 1}`;
+    const newItemLabel = `Project ${chartData.labels.length + 1}`;
     const newData = [...chartData.datasets[0].data, 0]; // Adding 0 as initial value for new item
+    const backgroudColors = [...chartData.datasets[0].backgroundColor, getRandomColor(),
+  ];
+    // Update the total project count
     setChartData({
       ...chartData,
       labels: [...chartData.labels, newItemLabel],
-      datasets: [{ ...chartData.datasets[0], data: newData }],
+      datasets: [{ ...chartData.datasets[0], data: newData,
+      backgroundColor: backgroudColors,
+     }],
     });
+
+    // Update the total project count
+    setNumProjects(chartData.labels.length + 1);
   };
 
   const deleteItem = (index) => {
     if (chartData.labels.length <= 1) {
-      alert("Cannot delete the last item.");
+      alert("Cannot delete the last Project.");
       return;
     }
     const newLabels = chartData.labels.filter((_, i) => i !== index);
     const newData = chartData.datasets[0].data.filter((_, i) => i !== index);
+    const backgroundColors = chartData.datasets[0].backgroundColor.filter(
+      (_, i) => i !== index
+    );
+    // Update the total project count
     setChartData({
       ...chartData,
       labels: newLabels,
-      datasets: [{ ...chartData.datasets[0], data: newData }],
+      datasets: [{ ...chartData.datasets[0], data: newData,
+      backgroundColor: backgroundColors,
+     }],
     });
+
+    // Update the total project count
+    setNumProjects(chartData.labels.length - 1);
   };
+
+  const [numProjects, setNumProjects] = useState(initialData.labels.length);
+
 
   return (
     <main className="main-container">
@@ -68,6 +98,7 @@ const VisualizationPage = () => {
       
       <div className="content-container">
         <h2 className='page-title'>Project Visualization</h2>
+        <p>Total Projects: {numProjects}</p>
 
         <div className="edit-section">
           <h3>Edit Data Points</h3>
