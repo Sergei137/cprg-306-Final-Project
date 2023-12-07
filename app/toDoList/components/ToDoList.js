@@ -53,7 +53,15 @@ const ToDoList = () => {
         <button className=" create-task-button mt-5 shadow-sm text-gray-700 hover:bg-blue-800 hover:text-white" onClick = {() => setModal(true)}>Create New Task</button>
       </div>
       <div className=" w-full flex flex-row  flex-wrap justify-evenly" >
-        {taskList && taskList.map((obj, index) => <Card taskObj = {obj} index = {index} deleteTask = {deleteTask} updateListArray={updateListArray} />)}
+      {taskList && taskList.map((obj, index) => 
+          <Card 
+            key={index} 
+            taskObj={obj} 
+            index={index} 
+            deleteTask={deleteTask} 
+            updateListArray={updateListArray} 
+          />
+        )}
         <CreateTask toggle = {toggle} modal = {modal} save = {saveTask}/>
       </div>
     </div>
