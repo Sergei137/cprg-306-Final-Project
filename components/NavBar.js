@@ -29,14 +29,12 @@ const NavBar = () => {
       <div className={`${isMenuOpen ? 'block' : 'hidden'} sm:hidden`} id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1 ">
           {/* Mobile Navigation Links */}
-          {navLinks.map((link) => (
-            <div>
+          {navLinks.map((link) => (          
             <Link href={link.href} key={link.name}>
               <span className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">
                 {link.name}
               </span>
-            </Link>
-            </div>
+            </Link>           
           ))}
         </div>
       </div>
