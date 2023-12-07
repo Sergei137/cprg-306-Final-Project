@@ -63,43 +63,45 @@ const VisualizationPage = () => {
   };
 
   return (
-    <main>
-      <NavBar/>
-    <div className="visualization-container  ">
+    <main className="main-container">
+      <NavBar />
       
-      <h2 className='mt-10'>Project Visualization</h2>
+      <div className="content-container">
+        <h2 className='page-title'>Project Visualization</h2>
 
-      <div className="chart-container mt-10">
-        <h3>Bar Chart</h3>
-        <Bar data={chartData} options={{ responsive: true }} />
-      </div>
-      
-      <div className="chart-container">
-        <h3>Doughnut Chart</h3>
-        <Doughnut data={chartData} />
-      </div>
-      
-      <div className="chart-container">
-        <h3>Line Chart</h3>
-        <Line data={chartData} />
-      </div>
+        <div className="edit-section">
+          <h3>Edit Data Points</h3>
+          {chartData.labels.map((label, index) => (
+            <div key={label} className="edit-item">
+              <label>{label}: </label>
+              <input
+                type="number"
+                value={chartData.datasets[0].data[index]}
+                onChange={(e) => handleDataChange(e.target.value, index)}
+              />
+              <button onClick={() => deleteItem(index)} className='edit-button'>Delete</button>
+            </div>
+          ))}
+          <button onClick={addItem} className='edit-button'>Add New Item</button>
+        </div>
 
-      <div className="edit-container">
-        <h3>Edit Data Points</h3>
-        {chartData.labels.map((label, index) => (
-          <div key={label} className="edit-item">
-            <label>{label}: </label>
-            <input
-              type="number"
-              value={chartData.datasets[0].data[index]}
-              onChange={(e) => handleDataChange(e.target.value, index)}
-            />
-            <button onClick={() => deleteItem(index)} className='sign-out-button'>Delete</button>
+        <div className="charts-section">
+          <div className="chart-container">
+            <h3>Bar Chart</h3>
+            <Bar data={chartData} options={{ responsive: true }} />
           </div>
-        ))}
-        <button onClick={addItem} className='sign-out-button'>Add New Item</button>
+          
+          <div className="chart-container">
+            <h3>Doughnut Chart</h3>
+            <Doughnut data={chartData} />
+          </div>
+          
+          <div className="chart-container">
+            <h3>Line Chart</h3>
+            <Line data={chartData} />
+          </div>
+        </div>
       </div>
-    </div>
     </main>
   );
 };
