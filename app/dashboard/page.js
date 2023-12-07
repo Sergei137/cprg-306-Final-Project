@@ -9,7 +9,7 @@ export default function Dashboard() {
       <div>
         <p>Dashboard</p>
         <p>-</p>
-        <Link href="/">Home Page</Link>
+        <Link href="/">Home/Log in page</Link>
       </div>
     </main>
   )
