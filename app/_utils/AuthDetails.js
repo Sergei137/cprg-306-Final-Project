@@ -34,7 +34,7 @@ const AuthDetails = () => {
   };
 
   return (
-    <authContext.Provider value={authUser}>
+    <AuthContext.Provider value={authUser}>
       <div className='auth-details-container'>
         <div>
           { authUser ? (
@@ -51,8 +51,12 @@ const AuthDetails = () => {
           )}
         </div>
       </div>
-    </authContext.Provider>
+    </AuthContext.Provider>
   );
 };
 
 export default AuthDetails;
+
+export const useAuth = () => {
+  return useContext(authContext);
+}
