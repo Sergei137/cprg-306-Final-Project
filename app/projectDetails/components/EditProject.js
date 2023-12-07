@@ -22,15 +22,15 @@ const EditProject = ({ project, onSave, onCancel }) => {
   }, [project]);
 
   const handleSave = () => {
-    onSave({
+    const updatedProject = {
       ...project,
       Name: projectName,
       Description: projectDescription,
       Duedate: dueDate,
-      Teammember: teamMembers.split(',').map(member => member.trim()), // Assuming team members are comma-separated
+      Teammember: teamMembers.split(',').map(member => member.trim()),
       Progress: parseInt(progress, 10)
-
-    });
+    };
+    onSave(updatedProject); // Call onSave with the updated project
   };
 
   return (

@@ -40,6 +40,10 @@ const ProjectDetailsPage = () => {
     setEditingProject(project);
   };
 
+  const handleCancelEdit = () => {
+    setEditingProject(null); // Reset editing project to null on cancel
+  };
+
   const handleDeleteProject = (projectId) => {
     const updatedProjects = projects.filter(p => p.id !== projectId);
     setProjects(updatedProjects);
@@ -95,7 +99,8 @@ const ProjectDetailsPage = () => {
 })}
 <Link href="/">Home Page</Link>
 </div>
-{editingProject && <EditProjectModal project={editingProject} save={handleSaveProject} />}
+{editingProject && <EditProjectModal project={editingProject} onSave={handleSaveProject}
+onCancel = {handleCancelEdit} />}
 </main>
 );
 };
