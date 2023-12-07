@@ -39,7 +39,7 @@ export default function Dashboard() {
         <p>-</p>
         <Link href="/">Home/Log in page</Link>
       </div>
-      <div>
+      <div className='content-container'>
         {projects.map((project, index) => (
           <div key={index}>
             <h2>{project.Name}</h2>
