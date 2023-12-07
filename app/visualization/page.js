@@ -44,20 +44,19 @@ const VisualizationPage = () => {
       <NavBar/>
       <div className="content-container">
       <h2>Project Visualization</h2>
-      <div className="chart-container">
-        <h3>Bar Chart</h3>
+      <div className="chart-container mt-5 mb-5">
+        <h3 className='mb-4'>Bar Chart</h3>
         <Bar data={chartData} options={{ responsive: true }} />
       </div>
-      <div className="chart-container">
-        <h3>Doughnut Chart</h3>
+      <div className="chart-container mb-5">
+        <h3 className='mb-4'>Doughnut Chart</h3>
         <Doughnut data={chartData} />
       </div>
       <div className="chart-container">
-        <h3>Line Chart</h3>
+        <h3 className='mb-4'>Line Chart</h3>
         <Line data={chartData} options={{ responsive: true }} />
       
-      </div>
-      <Link href="/" className="text-white mt-4">Home Page</Link>
+      </div>      
     </div>
     </div>
   );

@@ -4,6 +4,15 @@
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const ViewTask = ({ modal, toggle, taskObj }) => {
+  const handleOk = () => {
+    // Add any additional handling needed for the "Ok" button
+    toggle(); // Close the modal
+  };
+
+  const handleCancel = () => {
+    // Add any additional handling needed for the "Cancel" button
+    toggle(); // Close the modal
+  };
   return (
     <Modal isOpen={modal} toggle={toggle}>
       <ModalHeader toggle={toggle}>View Task</ModalHeader>
@@ -16,10 +25,10 @@ const ViewTask = ({ modal, toggle, taskObj }) => {
         </div>
       </ModalBody>
       <ModalFooter>
-      <Button color="primary" onClick={toggle}>
+      <Button color="primary" onClick={handleOk}>
         Ok
       </Button>{' '}
-      <Button color="secondary" onClick={toggle}>
+      <Button color="secondary" onClick={handleCancel}>
         Cancel
       </Button>
       </ModalFooter>

@@ -8,7 +8,30 @@ import './projectDetails.css'
 
 const ProjectDetailsPage = () => {
   const [projects, setProjects] = useState([]);
-  const [editingProject, setEditingProject] = useState(null); 
+  const [editingProject, setEditingProject] = useState(null);
+  
+  const colors = [
+    {
+      primaryColor : "#5D93E1",
+      secondaryColor : "#ECF3FC"
+    },
+    {
+      primaryColor : "#F9D288",
+      secondaryColor : "#FEFAF1"
+    },
+    {
+      primaryColor : "#5DC250",
+      secondaryColor : "#F2FAF1"
+    },
+    {
+      primaryColor : "#F48687",
+      secondaryColor : "#FDF1F1"
+    },
+    {
+      primaryColor : "#B964F7",
+      secondaryColor : "#F3F0FD"
+    }
+  ]
 
   useEffect(() => {
     // Load projects from local storage
@@ -41,6 +64,10 @@ const ProjectDetailsPage = () => {
     setEditingProject(project);
   };
 
+  const handleCancelEdit = () => {
+    setEditingProject(null); // Reset editing project to null on cancel
+  };
+
   const handleDeleteProject = (projectId) => {
     const updatedProjects = projects.filter(p => p.id !== projectId);
     setProjects(updatedProjects);
@@ -71,26 +98,25 @@ const ProjectDetailsPage = () => {
 
   return (
     <main>
-      <NavBar />
-      <div className='page-name'>
-        <h2 className='mt-10 mb-5'>Project Details</h2>
-        <CreateProject save={handleSaveProject} />
-      </div>
-      <div className='create-proj-content-container'>
-        {projects.map((project, index) => {
-          const { truncated, isTruncated } = truncateText(project.Description, 100);
-           // Truncate after 100 characters}
-          return (
-          <div className='new-proj-contents-container mt-5'>
-            <div key={index} className='new-proj-contents'>
-              <p><strong>Project Name:</strong> </p><p>{project.Name}</p>
+    <NavBar />
+    <div className='page-name'>
+      <h1 className='mt-10 mb-5 font-bold text-3xl'>Welcome To Your Project Details</h1>
+      <CreateProject save={handleSaveProject} />
+    </div>
+    <div className='create-proj-content-container'>
+      {projects.map((project, index) => {
+        const { truncated, isTruncated } = truncateText(project.Description, 100);
+        return (
+          <div className='new-proj-contents-container mt-5' key={index}>
+            <div className='new-proj-contents'>
+              <p><strong  style={{"background-color": colors[index%5].primaryColor}}>Project Name:</strong> </p><p>{project.Name}</p>
               <p className="project-description">
-                  <strong>Description:</strong></p><p> {truncated}
-                  {isTruncated && <button onClick={() => alert(project.Description)}>Read more</button>}
-                </p>
-              <p><strong>Due Date:</strong></p><p> {project.Duedate}</p>
-              <p><strong>Team Member:</strong></p><p> {formatTeamMembers(project.Teammember)}</p>
-              <p><strong>Progress:</strong> </p><p>{project.Progress}%</p>
+                <strong style={{"background-color": colors[index%5].primaryColor}}>Description:</strong></p><p> {truncated}
+                {isTruncated && <button onClick={() => alert(project.Description)}>Read more</button>}
+              </p>
+              <p><strong style={{"background-color": colors[index%5].primaryColor}}>Due Date:</strong></p><p> {project.Duedate}</p>
+              <p><strong style={{"background-color": colors[index%5].primaryColor}}>Team Member:</strong></p><p> {formatTeamMembers(project.Teammember)}</p>
+              <p><strong style={{"background-color": colors[index%5].primaryColor}}>Progress:</strong> </p><p>{project.Progress}%</p>
               <progress value={project.Progress} max="100"></progress>
               <div className='buttons'>
                 <button onClick={() => handleEditProject(project)}>Edit</button>
@@ -98,12 +124,17 @@ const ProjectDetailsPage = () => {
               </div>
             </div>
           </div>
-            );
-            })}
-            <Link href="/">Home Page</Link>
-        </div>
-{editingProject && <EditProjectModal project={editingProject} save={handleSaveProject} />}
-</main>
+        );
+      })}
+    </div>
+    {editingProject && (
+      <EditProjectModal
+        project={editingProject}
+        onSave={handleSaveProject}
+        onCancel={handleCancelEdit}
+      />
+    )}
+  </main>
 );
 };
 

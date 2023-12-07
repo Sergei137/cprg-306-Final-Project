@@ -17,9 +17,9 @@ const EditTask = ({modal, toggle, updateTask, taskObj}) => {
     }
   }
   useEffect(() => {
-    setTaskName(taskObj.Name)
-    setDescription(taskObj.Description)
-  }, [])
+    setTaskName(taskObj.Name);
+    setDescription(taskObj.Description);
+  }, [taskObj.Name, taskObj.Description]);
 
   const handleUpdate = (e) => {
     e.preventDefault();

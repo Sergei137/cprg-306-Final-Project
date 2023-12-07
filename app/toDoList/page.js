@@ -8,9 +8,9 @@ export default function ToDoListPage(){
   return(
     <main>
       <NavBar/>  
-      <div className="flex flex-col items-center" >
+      <div className="flex flex-col items-center " >
         <ToDoList/>
-        <Link href="/" className="text-white mt-4">Home Page</Link>
+        
       </div>
     </main>
   )

@@ -22,24 +22,24 @@ const EditProject = ({ project, onSave, onCancel }) => {
   }, [project]);
 
   const handleSave = () => {
-    onSave({
+    const updatedProject = {
       ...project,
       Name: projectName,
       Description: projectDescription,
       Duedate: dueDate,
-      Teammember: teamMembers.split(',').map(member => member.trim()), // Assuming team members are comma-separated
+      Teammember: teamMembers.split(',').map(member => member.trim()),
       Progress: parseInt(progress, 10)
-
-    });
+    };
+    onSave(updatedProject); // Call onSave with the updated project
   };
 
   return (
     <Modal isOpen={!!project} toggle={onCancel}>
-      <ModalHeader toggle={onCancel}>Edit Project</ModalHeader>
+      <ModalHeader toggle={onCancel} className='text-black font-medium'>Edit Project</ModalHeader>
       <ModalBody>
         <form>
           <div className="form-group">
-            <label>Project Name</label>
+            <label className='text-blue-700 font-medium'>Project Name</label>
             <input 
               type="text" 
               className="form-control" 
@@ -49,7 +49,7 @@ const EditProject = ({ project, onSave, onCancel }) => {
             />
           </div>
           <div className="form-group">
-            <label>Description</label>
+            <label className='text-blue-700 font-medium'>Description</label>
             <textarea 
               rows="5" 
               className="form-control" 
@@ -60,7 +60,7 @@ const EditProject = ({ project, onSave, onCancel }) => {
           </div>
         {/* New field for due date */}
         <div className="form-group">
-            <label>Due Date</label>
+            <label className='text-blue-700 font-medium'>Due Date</label>
             <input 
               type="date" 
               className="form-control" 
@@ -71,7 +71,7 @@ const EditProject = ({ project, onSave, onCancel }) => {
           </div>
           {/* New field for team members */}
           <div className="form-group">
-            <label>Team Members</label>
+            <label className='text-blue-700 font-medium'>Team Members</label>
             <input 
               type="text" 
               className="form-control" 
@@ -83,7 +83,7 @@ const EditProject = ({ project, onSave, onCancel }) => {
           </div>
           
           <div className="form-group">
-            <label>Progress (%)</label>
+            <label className='text-blue-700 font-medium'>Progress (%)</label>
             <input 
               type="number" 
               className="form-control" 
@@ -96,9 +96,9 @@ const EditProject = ({ project, onSave, onCancel }) => {
           </div>
         </form>
       </ModalBody>
-      <ModalFooter>
-        <Button color="primary" onClick={handleSave}>Save Changes</Button>
-        <Button color="secondary" onClick={onCancel}>Cancel</Button>
+      <ModalFooter className='flex justify-between'>
+        <Button className='bg-blue-700 w-28' onClick={handleSave}>Save</Button>
+        <Button className='bg-blue-700' onClick={onCancel}>Cancel</Button>
       </ModalFooter>
     </Modal>
   );

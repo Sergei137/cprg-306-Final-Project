@@ -60,7 +60,7 @@ const CreateProject = ({ save }) => {
 
   return (
     <>
-      <Button className='w-40' onClick={toggle}>Create Project</Button>
+      <Button className='w-40  hover:bg-blue-700' onClick={toggle}>Create Project</Button>
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Create New Project</ModalHeader>
         <ModalBody>
