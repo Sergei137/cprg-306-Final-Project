@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { auth } from './firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 
-const authContext = createContext();
+const AuthContext = createContext(null);
 
 const AuthDetails = () => {
   const [authUser, setAuthUser] = useState(null);
