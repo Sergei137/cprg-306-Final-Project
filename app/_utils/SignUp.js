@@ -12,7 +12,9 @@ const SignUp = () => {
   const [SignUpMessage, setSignUpMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const signUp = (e) => {
+  const signUp = async (e) => {
+    
+    // 
     e.preventDefault();
 
     // clear sign up message on new sign up
@@ -24,14 +26,13 @@ const SignUp = () => {
       return;
     }
 
-    // create user
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    // sign up user
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       setErrorMessage(''); // clear error message on successful sign up
       setSignUpMessage('New account has been created.');
       console.log(userCredential);
-    })
-    .catch((error) => {
+    } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         setErrorMessage('That email address is already in use. Please try a different email address.');
         console.log(error);
@@ -39,7 +40,7 @@ const SignUp = () => {
         setErrorMessage(error.message);
       }
       console.log(error);
-    });
+    }
   };
 
   return (
