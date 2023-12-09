@@ -58,8 +58,8 @@ export default function Dashboard() {
   return (
     <main>
       <NavBar/>
-      <h1 className='font-bold text-2xl text-center mt-5 mb-3'>Welcome To Your Dashboard Page !</h1>
-      <h2 className='font-medium text-lg text-center mt-3 mb-5'>You Have Next Projects On Your List !</h2>
+      <h1 className='font-bold text-2xl text-center mt-5 mb-3 text-slate-200'>Welcome To Your Dashboard Page !</h1>
+      <h2 className='font-medium text-lg text-center mt-3 mb-5 text-slate-200'>You Have Next Projects On Your List !</h2>
 
       <div className='proj-content-container'>
           <div className='proj-info-container'>

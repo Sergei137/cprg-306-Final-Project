@@ -100,7 +100,7 @@ const ProjectDetailsPage = () => {
     <main>
     <NavBar />
     <div className='page-name'>
-      <h1 className='mt-10 mb-5 font-bold text-3xl'>Welcome To Your Project Details</h1>
+      <h1 className='mt-10 mb-5 font-bold text-3xl text-slate-200'>Welcome To Your Project Details</h1>
       <CreateProject save={handleSaveProject} />
     </div>
     <div className='create-proj-content-container'>
@@ -118,9 +118,9 @@ const ProjectDetailsPage = () => {
               <p><strong style={{"background-color": colors[index%5].primaryColor}}>Team Member:</strong></p><p> {formatTeamMembers(project.Teammember)}</p>
               <p><strong style={{"background-color": colors[index%5].primaryColor}}>Progress:</strong> </p><p>{project.Progress}%</p>
               <progress value={project.Progress} max="100"></progress>
-              <div className='buttons'>
-                <button onClick={() => handleEditProject(project)}>Edit</button>
-                <button onClick={() => handleDeleteProject(project.id)}>Delete</button>
+              <div className='edit-delete-buttons'>
+                <button onClick={() => handleEditProject(project)} className='project-cont-buttons'>Edit</button>
+                <button onClick={() => handleDeleteProject(project.id)} className='project-cont-buttons'>Delete</button>
               </div>
             </div>
           </div>

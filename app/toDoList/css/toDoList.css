@@ -27,3 +27,11 @@
     border-radius: 5px;
     cursor: pointer;
   }
+  .to-do-list-buttons{
+    background-color: #A5A5A5;
+    color: black;
+  }
+  .to-do-list-buttons:hover{
+    background-color: blue;
+    color:white;
+  }

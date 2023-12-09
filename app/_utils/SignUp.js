@@ -46,7 +46,7 @@ const SignUp = () => {
   return (
     <div className='sign-up-container'>
       <form onSubmit={signUp}>
-        <h1>Sign Up Form</h1>
+        <h1 className='text-blue-200'>Sign Up Form</h1>
         {errorMessage && <p>{errorMessage}</p>}
         {SignUpMessage && <p>{SignUpMessage}</p>}
         <input 

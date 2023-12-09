@@ -11,7 +11,7 @@ const NavBar = () => {
         <div className="relative flex items-center justify-center h-16">
           {/* ... Mobile menu button and other UI elements ... */}
           <div className="hidden sm:block sm:ml-6 ">
-            <div className="flex space-x-4 mt-5">
+            <div className="flex space-x-4">
               {/* Navigation Links */}
               {navLinks.map((link) => (
                 <Link href={link.href} key={link.name}>
@@ -27,7 +27,7 @@ const NavBar = () => {
 
       {/* Mobile menu, show/hide based on menu state. */}
       <div className={`${isMenuOpen ? 'block' : 'hidden'} sm:hidden`} id="mobile-menu">
-        <div className="px-2 pt-2 pb-3 space-y-1 ">
+        <div className="px-2 pt-2 pb-3 space-y-1">
           {/* Mobile Navigation Links */}
           {navLinks.map((link) => (          
             <Link href={link.href} key={link.name}>

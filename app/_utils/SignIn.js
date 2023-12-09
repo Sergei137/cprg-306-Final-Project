@@ -32,9 +32,9 @@ const SignIn = ({ onLogInSuccess }) => {
   };
 
   return (
-    <div className='sign-in-container shadow-lg'>
+    <div className='sign-in-container shadow-lg '>
       <form onSubmit={signIn}>
-        <h1>Log In</h1>
+        <h1 className='text-blue-200'>Log In</h1>
         {errorMessage && <p>{errorMessage}</p>}
         <input 
           type='email' 

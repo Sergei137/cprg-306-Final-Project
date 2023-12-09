@@ -2,6 +2,7 @@
 //import { useAmp } from "next/amp";
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import '../css/toDoList.css';
 
 const ViewTask = ({ modal, toggle, taskObj }) => {
   const handleOk = () => {
@@ -25,10 +26,10 @@ const ViewTask = ({ modal, toggle, taskObj }) => {
         </div>
       </ModalBody>
       <ModalFooter>
-      <Button color="primary" onClick={handleOk}>
+      <Button className = "to-do-list-buttons" onClick={handleOk}>
         Ok
       </Button>{' '}
-      <Button color="secondary" onClick={handleCancel}>
+      <Button className = "to-do-list-buttons" onClick={handleCancel}>
         Cancel
       </Button>
       </ModalFooter>

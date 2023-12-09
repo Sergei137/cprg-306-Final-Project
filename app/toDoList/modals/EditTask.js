@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 //import { useAmp } from "next/amp";
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import '../css/toDoList.css';
 
 const EditTask = ({modal, toggle, updateTask, taskObj}) => {
 
@@ -45,10 +46,10 @@ const EditTask = ({modal, toggle, updateTask, taskObj}) => {
         </form>            
       </ModalBody>
       <ModalFooter>
-      <Button color="primary" onClick={handleUpdate}>
+      <Button className = "to-do-list-buttons" onClick={handleUpdate}>
         Update
       </Button>{' '}
-      <Button color="secondary" onClick={toggle}>
+      <Button className = "to-do-list-buttons" onClick={toggle}>
         Cancel
       </Button>
       </ModalFooter>

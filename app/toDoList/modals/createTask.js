@@ -2,6 +2,7 @@ import React, { useState } from "react";
 //import { useAmp } from "next/amp";
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import '../css/toDoList.css';
 
 const CreateTask = ({modal, toggle, save}) => {
 
@@ -45,10 +46,10 @@ const CreateTask = ({modal, toggle, save}) => {
         </form>            
       </ModalBody>
       <ModalFooter>
-      <Button color="primary" onClick={handleSave}>
+      <Button className = 'to-do-list-buttons hover:bg-blue-700' onClick={handleSave}>
         Create
       </Button>{' '}
-      <Button color="secondary" onClick={toggle}>
+      <Button className = 'to-do-list-buttons hover:bg-blue-700' onClick={toggle}>
         Cancel
       </Button>
       </ModalFooter>

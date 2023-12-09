@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ToDoList from './components/ToDoList';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NavBar from '@/components/NavBar';
+import './css/toDoList.css'
 
 export default function ToDoListPage(){
   return(

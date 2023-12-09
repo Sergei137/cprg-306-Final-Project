@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import '../projectDetails.css';
 
 const CreateProject = ({ save }) => {
   const [modal, setModal] = useState(false);
@@ -60,7 +61,7 @@ const CreateProject = ({ save }) => {
 
   return (
     <>
-      <Button className='w-40  hover:bg-blue-700' onClick={toggle}>Create Project</Button>
+      <Button className='create-project-button' onClick={toggle}>Create Project</Button>
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Create New Project</ModalHeader>
         <ModalBody>
@@ -127,8 +128,8 @@ const CreateProject = ({ save }) => {
           </form>            
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={handleSave}>Create</Button>
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
+          <Button className='bg-blue-700 w-28' onClick={handleSave}>Create</Button>
+          <Button className='bg-blue-700' onClick={toggle}>Cancel</Button>
         </ModalFooter>
       </Modal>
     </>
