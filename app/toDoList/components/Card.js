@@ -33,7 +33,7 @@ const Card = ({taskObj, index, deleteTask, updateListArray}) => {
   ]
 
   const toggle = () => {
-    setModal(!modal)
+    setView(false)
   }
 
   const updateTask = (obj) => {
